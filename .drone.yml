@@ -1,0 +1,17 @@
+kind: pipeline
+type: docker
+name: default
+  
+steps:
+- name: build
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: username
+    password:
+      from_secret: password
+    repo: 192.168.1.5:10880/harbor-demo/dotnet
+    tags: latest
+    registry: 192.168.1.5:10880
+    insecure: true
+  
